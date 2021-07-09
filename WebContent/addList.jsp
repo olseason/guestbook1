@@ -46,7 +46,7 @@
 		for(int i=0; i<guestbookList.size(); i++) {
 	%>
 	
-			<table border='1' style="width:485px;">
+			<table border='1'>
 			
 				<tr>
 					<td><%=guestbookList.get(i).getNo() %></td>
