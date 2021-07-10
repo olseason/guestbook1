@@ -5,6 +5,7 @@
 	int no = Integer.parseInt(request.getParameter("id"));
 %>
    
+   
 <!DOCTYPE html>
 <html>
 <head>
