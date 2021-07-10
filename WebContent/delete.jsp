@@ -20,4 +20,5 @@
 	guestbookDao.guestbookDelete(guestbookVo);
 	
 	response.sendRedirect("./addList.jsp");
+	
 %>
