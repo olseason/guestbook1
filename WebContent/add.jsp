@@ -25,4 +25,3 @@
 	guestbookDao.guestbookInsert(guestbookVo);
 	
 	response.sendRedirect("./addList.jsp");
-%>
