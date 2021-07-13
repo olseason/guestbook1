@@ -1,27 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    
-<%@page import="java.util.List" %>  
-   
-<%@ page import = "com.javaex.dao.GuestbookDao" %> 
-<%@ page import = "com.javaex.vo.GuestbookVo" %>
-    
-    
+	pageEncoding="UTF-8"%>
+
+<%@ page import="java.util.List"%>
+<%@ page import="com.javaex.dao.GuestbookDao"%>
+<%@ page import="com.javaex.vo.GuestbookVo"%>
+
 <%
 	request.setCharacterEncoding("UTF-8");
-	
-	//int no = Integer.parseInt(request.getParameter("no"));
 	String name = request.getParameter("name");
-	String password = request.getParameter("password");
+	String pw = request.getParameter("password");
 	String content = request.getParameter("content");
-	//String regDate = request.getParameter("reg_date");
-	//System.out.println(no+", "+name+ ", " + password + ", " + content + ", " + regDate);
-	System.out.println(name+ ", " + password + ", " + content);
+	//vo로 묶기
+	GuestbookVo guestBookVo = new GuestbookVo(name,pw,content);
 	
-	//GuestbookVo guestbookVo = new GuestbookVo(no, name, password, content, regDate);
-	GuestbookVo guestbookVo = new GuestbookVo(name, password, content);
+	//저장하기
+	GuestbookDao guestBookDao = new GuestbookDao();
+	guestBookDao.guestbookInsert(guestBookVo);
+	//리스트 리다이렉트
+	response.sendRedirect("./list.jsp");
 	
-	GuestbookDao guestbookDao = new GuestbookDao();
-	guestbookDao.guestbookInsert(guestbookVo);
-	
-	response.sendRedirect("./addList.jsp");
+%>
